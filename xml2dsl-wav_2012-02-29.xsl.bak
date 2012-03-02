@@ -1,4 +1,4 @@
-ï»¿<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text"/>
 
@@ -16,7 +16,7 @@
 	</xsl:text>
 
 		<xsl:text >[c red][b]</xsl:text><!-- head word -->
-			<xsl:value-of select="translate(./@value, '|', ' ')"/>
+			<xsl:value-of select="translate(./@value, '|', '·')"/>
 		<xsl:text >[/b][/c]</xsl:text>
 
 		<xsl:if test="./paradigm/inflection" ><!-- inflection -->
@@ -35,31 +35,27 @@
 		</xsl:if>
 
 		<xsl:if test="phonetic/@soundFile" ><!-- sound file -->
-			<xsl:text > [s]</xsl:text>
-				<xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), 'Ã Ã©Ãª', '178')"/>
-			<xsl:text >.wav[/s]</xsl:text>
-			<xsl:text >[c grey]</xsl:text>
-				<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
-			<xsl:text >.wav[/c]</xsl:text>
+			<xsl:text > [s]</xsl:text><xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), "àéê"" "/><xsl:text >.wav[/s]</xsl:text>
+			<xsl:text >[c grey]</xsl:text><xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/><xsl:text >.wav[/c]</xsl:text>
 			<xsl:text >[/m]</xsl:text>
 		</xsl:if>
 
 <xsl:text >
 	</xsl:text>
-		<xsl:text >[m2][s]en.bmp[/s] </xsl:text>
+		<xsl:text >[m2][s]square.bmp[/s][s]en.bmp[/s]</xsl:text>
 			<xsl:value-of select="translation/@value"/>
 		<xsl:text >[/m]</xsl:text>
 
 		<xsl:if test="definition">
 <xsl:text >
 	</xsl:text>
-		<xsl:text >[m2][s]sv.bmp[/s] </xsl:text>
+		<xsl:text >[m2][s]square.bmp[/s][s]sv.bmp[/s]</xsl:text>
 				<xsl:value-of select="definition/@value"/>
 			<xsl:text >[/m]</xsl:text>
 			<xsl:if test="definition/translation">
 <xsl:text >
 	</xsl:text>
-				<xsl:text >[m4][s]square.bmp[/s] (</xsl:text>
+				<xsl:text >[m4][s]square.bmp[/s](</xsl:text>
 					<xsl:value-of select="definition/translation/@value"/>
 				<xsl:text >)[/m]</xsl:text>
 			</xsl:if>
