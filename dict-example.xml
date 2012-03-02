@@ -187,19 +187,24 @@
 <phonetic soundFile="all right.swf" value="ålrAj:t" />
 <see type="saldo" value="all right||all_right..1||all_right..inm.1" />
 </word>
-<word class="nn" lang="sv" value="går"><phonetic soundFile="går.swf" value="gå:r" />
+<word class="nn" lang="sv" value="går">
+<phonetic soundFile="går.swf" value="gå:r" />
 <synonym level="4.3" value="promenerar" />
-<compound inflection="går|dagen" value="går|dag"><translation value="yesterday" />
+<compound inflection="går|dagen" value="går|dag">
+	<translation value="yesterday" />
 </compound>
-<idiom value="i går (&amp;quot;dagen före idag&amp;quot;)"><translation value="yesterday" />
+<idiom value="i går (&amp;quot;dagen före idag&amp;quot;)">
+	<translation value="yesterday" />
 </idiom>
 </word>
-<word class="vb" comment="även avlägsna sig" lang="sv" value="gå"><translation comment="also, to leave" value="go, walk" />
+<word class="vb" comment="även avlägsna sig" lang="sv" value="gå">
+<translation comment="also, to leave" value="go, walk" />
 <phonetic soundFile="går.swf" value="gå:r" />
-<paradigm><inflection value="gick" />
-<inflection value="gått" />
-<inflection value="gå" />
-<inflection value="går" />
+<paradigm>
+	<inflection value="gick" />
+	<inflection value="gått" />
+	<inflection value="gå" />
+	<inflection value="går" />
 </paradigm>
 <synonym level="3.0" value="bege" />
 <synonym level="4.6" value="bege sig" />

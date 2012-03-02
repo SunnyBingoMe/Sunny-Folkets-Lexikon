@@ -3,44 +3,53 @@
 <xsl:output method="text"/>
 
 <xsl:template match="/">
-<xsl:text >#NAME "Sunny Folkets sv_en by BinSun"
+<xsl:text >#NAME "Sunny Folkets sv_en (bug: BinSun@mail.com)"
 #INDEX_LANGUAGE "Swedish"
 #CONTENTS_LANGUAGE "English"
 
 </xsl:text>
 
 	<xsl:for-each select="dictionary/word">
-			<xsl:value-of select="translate(./@value, '|', '')"/>
+		<xsl:value-of select="translate(./@value, '|', '')"/>
 
 <xsl:text >
 	</xsl:text>
-			<xsl:text >[c red][b]</xsl:text>
-			<xsl:value-of select="translate(./@value, '|', ' ')"/>
-			<xsl:text >[/b][/c]</xsl:text>
-			
-			<xsl:if test="phonetic/@value" >
-				<xsl:text > [c green]\[</xsl:text>
-				<xsl:value-of select="phonetic/@value"/>
-				<xsl:text >\][/c][/m]</xsl:text>
-			</xsl:if>
 
-			<xsl:if test="phonetic/@soundFile" >
-				<xsl:text > ([s]</xsl:text>
-				<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
-				<xsl:text >.wav[/s]</xsl:text>
-				<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
-				<xsl:text >[c grey].wav[/c]</xsl:text>
-				<xsl:text >)[/m]</xsl:text>
-			</xsl:if>
-			
+		<xsl:text >[c red][b]</xsl:text><!-- head word -->
+			<xsl:value-of select="translate(./@value, '|', '·')"/>
+		<xsl:text >[/b][/c]</xsl:text>
+
+		<xsl:if test="./paradigm/inflection" ><!-- inflection -->
+			<xsl:text >[c darkslategray] [b]\[</xsl:text>
+				<xsl:for-each select="./paradigm/inflection">
+					<xsl:if test="position()!=1" >, </xsl:if>
+					<xsl:value-of select="./@value"/>
+				</xsl:for-each>
+			<xsl:text >\][/b][/c]</xsl:text>
+		</xsl:if>
+
+		<xsl:if test="phonetic/@value" ><!-- phonemic annotation -->
+			<xsl:text > [c green]\/</xsl:text>
+			<xsl:value-of select="phonetic/@value"/>
+			<xsl:text >\/[/c][/m]</xsl:text>
+		</xsl:if>
+
+		<xsl:if test="phonetic/@soundFile" ><!-- sound file -->
+			<xsl:text > [s]</xsl:text><xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/><xsl:text >.wav[/s]</xsl:text>
+			<xsl:text >[c grey]</xsl:text><xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/><xsl:text >.wav[/c]</xsl:text>
+			<xsl:text >[/m]</xsl:text>
+		</xsl:if>
+
 <xsl:text >
 	</xsl:text>
 		<xsl:text >[m2]</xsl:text>
-		<xsl:value-of select="translation/@value"/>
+			<xsl:value-of select="translation/@value"/>
 		<xsl:text >[/m]</xsl:text>
-		
+
 <xsl:text >
+
 </xsl:text>
+
 	</xsl:for-each>
 </xsl:template>
 
