@@ -9,12 +9,22 @@ under the licence: http://creativecommons.org/licenses/by-sa/2.5/
 
 Thank you all the contributors of the online dictionary.
 
-Version: 0.1.2012-03-01.0354
 To-do: 
+	explanation;
+	Grammar comment;
+	See Saldo;
+	entities such as '&quot;' in 'tid';
+	pictures/flashes/urls;
+	??? ref to another word;
+	
 	sounds of only three 'single letters'. // just deleted them in original xml ???
-	part of speech / ordklass / wordclass .
-	phonemic notation fonts.
-	more detail:
-		Compounds;
-		See Saldo;
-		pictures/flashes;
+	morphology;
+	phonemic notation replace array //try php in xsl???
+
+Version: 0.1.2012-03-03.0206
+Waht's new:
+	word class;
+	examples;
+	Synonyms;
+	Idioms;
+	Compounds;

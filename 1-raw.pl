@@ -74,14 +74,12 @@ sub mean
 $fileName = "folkets_sv_en_public.xml";
 $fileNameRaw = "folkets_sv_en_public_soundFile-list-raw.txt";
 open (FID, $fileName) or die("ERR open file: $fileName \n");
-open (raw, ">>$fileNameRaw") or die("ERR open file: $fileName \n");
+open (raw, ">$fileNameRaw") or die("ERR open file: $fileName \n");
 
 ## don't buffer output
 my $old_fh = select socketSession;
 $| = 1;
 select $old_fh;
-
-# print socketSession "bisu10\n";
 
 $lineNumber = 0;
 while(<FID>)
