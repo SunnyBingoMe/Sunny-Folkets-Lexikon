@@ -1,16 +1,33 @@
-Sunny Folkets sv_en (alpha)
+Sunny Folkets sv_en (beta)
 
 Author: BinSun@mail.com
 
-This alpha edition of the Sunny Folkets sv_en Dictionary
+This edition of the Sunny Folkets SV-EN Dictionary
 is based on Folkets Lexikon (Peoples Dictionary) (2012-02-26),
 http://folkets-lexikon.csc.kth.se/folkets/folkets.en.html,
 under the licence: http://creativecommons.org/licenses/by-sa/2.5/
 
+My achievement is using licence: CC BY-NC-SA 3.0
+(Attribution-NonCommercial-ShareAlike 3.0)
+Please keep the email address.
+
 Thank you all the contributors of the online dictionary.
 
-Version: 0.1.2012-03-01.0354
 To-do: 
-	non-swedish word's sound.
-	more detail.
+	phonemic notation replace array // php or perl. is xsl ok???
+	word/variant; in svenska
+	Use;
+	word/@comment; in svenska
+	word/translation/@comment; in english
+	pictures/flashes/urls; picture Swedish picture English
 	
+	See Saldo / Saldo 2; film,
+	morphology;
+
+Version: 0.1.2012-03-03.0206
+Waht's new:
+	word class;
+	examples;
+	Synonyms;
+	Idioms;
+	Compounds;

@@ -3,7 +3,7 @@
 <xsl:output method="text"/>
 
 <xsl:template match="/">
-<xsl:text >#NAME "Sunny Folkets sv_en (bug: BinSun@mail.com)"
+<xsl:text >#NAME "Sunny Folkets SV-EN (bug: BinSun@mail.com)"
 #INDEX_LANGUAGE "Swedish"
 #CONTENTS_LANGUAGE "English"
 
@@ -46,7 +46,13 @@
 					<xsl:value-of select="./@class"/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:text >[/c] </xsl:text>
+			<xsl:text >[/c]</xsl:text>
+		</xsl:if>
+
+		<xsl:if test="grammar" ><!--Grammar comment-->
+			<xsl:text >[c grey],[/c] [c orangered]\[</xsl:text>
+			<xsl:value-of select="grammar/@value"/>
+			<xsl:text >\][/c]</xsl:text>
 		</xsl:if>
 
 		<xsl:if test="phonetic/@value" ><!--phonemic annotation-->
@@ -56,35 +62,51 @@
 		</xsl:if>
 
 		<xsl:if test="phonetic/@soundFile" ><!-- sound file -->
-			<xsl:text > [s]</xsl:text>
-				<xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), 'àéê', '178')"/>
-			<xsl:text >.wav[/s]</xsl:text>
-			<xsl:text >[c grey]</xsl:text>
-				<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
-			<xsl:text >.wav[/c]</xsl:text>
-			<xsl:text >[/m]</xsl:text><!-- m0 -->
+			<xsl:if test="phonetic/@soundFile != 'å.swf' and phonetic/@soundFile != 'ö.swf'" >
+				<xsl:text >[s]</xsl:text>
+					<xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), 'àéê', '178')"/>
+				<xsl:text >.wav[/s]</xsl:text>
+				<xsl:text >[c grey]</xsl:text>
+					<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
+				<xsl:text >.wav[/c]</xsl:text>
+				<xsl:text >[/m]</xsl:text><!-- m0 -->
+			</xsl:if>
 		</xsl:if>
 
-<xsl:text >
-	</xsl:text>
-		<xsl:text >[m2][s]en.bmp[/s] </xsl:text>
+		<!-- begin translation/definition -->
+		<xsl:text >
+			[m1][s]uk.bmp[/s] </xsl:text>
 			<xsl:value-of select="translation/@value"/>
 		<xsl:text >[/m]</xsl:text>
 
 		<xsl:if test="definition">
-<xsl:text >
-	</xsl:text>
-		<xsl:text >[m2][s]sv.bmp[/s] </xsl:text>
+			<xsl:text >
+				[m1][s]sv.bmp[/s] </xsl:text>
 				<xsl:value-of select="definition/@value"/>
 			<xsl:text >[/m]</xsl:text>
 			<xsl:if test="definition/translation">
-<xsl:text >
-	</xsl:text>
-				<xsl:text >[m3]([s]square.bmp[/s] </xsl:text>
+				<xsl:text >
+					[m2][s]uk_small.bmp[/s] (</xsl:text>
 					<xsl:value-of select="definition/translation/@value"/>
 				<xsl:text >)[/m]</xsl:text>
 			</xsl:if>
 		</xsl:if>
+		<!-- end translation/definition -->
+
+		<!-- begin explanation -->
+		<xsl:if test="explanation">
+			<xsl:text >
+				[m1][c darkslategray][b]Explanation: [/b][/c]</xsl:text>
+				<xsl:value-of select="explanation/@value"/>
+			<xsl:text >[/m]</xsl:text>
+			<xsl:if test="explanation/translation">
+				<xsl:text >
+					[m2][s]uk_small.bmp[/s] (</xsl:text>
+					<xsl:value-of select="explanation/translation/@value"/>
+				<xsl:text >)[/m]</xsl:text>
+			</xsl:if>
+		</xsl:if>
+		<!-- end explanation -->
 
 		<xsl:if test="./example" ><!-- example-->
 			<xsl:for-each select="./example">
@@ -92,46 +114,53 @@
 				</xsl:if>
 				<xsl:text >[m2][ex][*]•[/*][/ex][c darkgray] [/c][ex][*]{{x}}</xsl:text>
 					<xsl:value-of select="./@value"/>
-				<xsl:text > [i]([s]square.bmp[/s] </xsl:text>
+				<xsl:text > [s]uk_small.bmp[/s] </xsl:text>
 				<xsl:value-of select="./translation/@value"/>
-				<xsl:text >)[/i]{{/x}} [/*][/ex]</xsl:text>
+				<xsl:text >{{/x}} [/*][/ex]
+				</xsl:text>
 			</xsl:for-each>
 		</xsl:if>
 
 		<xsl:if test="./idiom" ><!-- idiom-->
-			<xsl:text >{{Idiom}}[m3][c darkslategray][u]Idioms:[/u][/c] [m4] 
-				[c darkslategray] </xsl:text>
+			<xsl:text >[m3][c white]_______[/c][/m]
+				{{Idiom}}[m3][c darkslategray][u]Idioms:[/u][/c]
+				[c darkslategray] 
+			</xsl:text>
 			<xsl:for-each select="./idiom">
 				<xsl:if test="position()!=1" >
 				</xsl:if>
 				<xsl:text >[m4][b]</xsl:text>
 					<xsl:value-of select="./@value"/>
 				<xsl:text >[/b]</xsl:text>
-				<xsl:text > [i][s]square.bmp[/s](</xsl:text>
-				<xsl:value-of select="./translation/@value"/>
-				<xsl:text >)[/i]</xsl:text>
+				<xsl:text > [s]uk_small.bmp[/s] </xsl:text>
+					<xsl:value-of select="./translation/@value"/>
+				<xsl:text >
+				</xsl:text>
 			</xsl:for-each>
 			<xsl:text >[/c]</xsl:text>
 		</xsl:if>
 
 		<xsl:if test="./compound" ><!-- compound-->
-			<xsl:text >{{Compound}}[m3][c darkslategray][u]Compounds:[/u][/c] [m4] 
-				[c darkslategray] </xsl:text>
+			<xsl:text >[m3][c white]_______[/c][/m]
+				{{Compound}}[m3][c darkslategray][u]Compounds:[/u][/c]
+				[c darkslategray] 
+			</xsl:text>
 			<xsl:for-each select="./compound">
 				<xsl:if test="position()!=1" >
 				</xsl:if>
 				<xsl:text >[m4][b]</xsl:text>
 					<xsl:value-of select="./@value"/>
 				<xsl:text >[/b]</xsl:text>
-				<xsl:text > [i]([s]square.bmp[/s] </xsl:text>
+				<xsl:text > [s]uk_small.bmp[/s] </xsl:text>
 				<xsl:value-of select="./translation/@value"/>
-				<xsl:text >)[/i]</xsl:text>
+				<xsl:text ></xsl:text>
 			</xsl:for-each>
 			<xsl:text >[/c]</xsl:text>
 		</xsl:if>
 
 		<xsl:if test="./synonym" ><!-- synonym-->
-			<xsl:text >{{Synonyms}}[m3][c darkslategray][u]Synonyms:[/u][/c] [m4] 
+			<xsl:text >[m3][c white]_______[/c][/m]
+				{{Synonyms}}[m3][c darkslategray][u]Synonyms:[/u][/c]
 				[m4][c darkslategray][b] </xsl:text>
 			<xsl:for-each select="./synonym">
 				<xsl:if test="position()!=1" >, </xsl:if>
