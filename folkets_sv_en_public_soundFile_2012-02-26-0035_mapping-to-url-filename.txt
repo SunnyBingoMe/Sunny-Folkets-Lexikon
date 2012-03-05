@@ -16,4 +16,27 @@
 b j k l n q r s t u w x y z ä 
 1, 7, 8, (3, 9) 
 
-àéê178
+àéêÖöÅåÄä
+1783399==
+
+1: 0 times (taken)
+2: 2 times
+3: 1 times (taken)
+4: 1 times
+5: 4 times
+6: 1 times
+7: 0 times (taken)
+8: 0 times (taken)
+9: 1 times (taken)
+0: 8 times
++: 0 times (taken)
+,: 0 times
+_: 0 times (taken)
+[: 0 times //weird
+]: 0 times //weird
+{: 0 times //weird
+}: 0 times //weird
+=: 0 times (taken)
+~: 0 times //weird
+(: 0 times //weird
+): 0 times //weird

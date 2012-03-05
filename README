@@ -1,6 +1,9 @@
-Sunny Folkets sv_en (beta)
+﻿Sunny Folkets sv_en (beta)
 
 Author: BinSun@mail.com
+
+Installation and configuration:
+http://blog.sunnyboy.me/2012/03/01/13452/
 
 This edition of the Sunny Folkets SV-EN Dictionary
 is based on Folkets Lexikon (Peoples Dictionary) (2012-02-26),
@@ -14,7 +17,13 @@ Please keep the email address.
 Thank you all the contributors of the online dictionary.
 
 To-do: 
+	bugs:
+		sounds of: å, ö, få, tåg, år, åt, där, 
 	phonemic notation replace array // php or perl. is xsl ok???
+		+ => _
+		@ => ng
+		$ => sj
+		
 	word/variant; in svenska
 	Use;
 	word/@comment; in svenska

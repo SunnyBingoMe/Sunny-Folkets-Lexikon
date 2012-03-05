@@ -62,15 +62,13 @@
 		</xsl:if>
 
 		<xsl:if test="phonetic/@soundFile" ><!-- sound file -->
-			<xsl:if test="phonetic/@soundFile != 'å.swf' and phonetic/@soundFile != 'ö.swf'" >
-				<xsl:text >[s]</xsl:text>
-					<xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), 'àéê', '178')"/>
-				<xsl:text >.wav[/s]</xsl:text>
-				<xsl:text >[c grey]</xsl:text>
-					<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
-				<xsl:text >.wav[/c]</xsl:text>
-				<xsl:text >[/m]</xsl:text><!-- m0 -->
-			</xsl:if>
+			<xsl:text >[s]</xsl:text>
+				<xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), 'àéêÖöÅåÄä', '1783399==')"/>
+			<xsl:text >.wav[/s]</xsl:text>
+			<xsl:text >[c grey]</xsl:text>
+				<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
+			<xsl:text >.wav[/c]</xsl:text>
+			<xsl:text >[/m]</xsl:text><!-- m0 -->
 		</xsl:if>
 
 		<!-- begin translation/definition -->
