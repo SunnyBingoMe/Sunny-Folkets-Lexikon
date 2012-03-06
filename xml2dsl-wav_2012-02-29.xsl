@@ -3,7 +3,7 @@
 <xsl:output method="text"/>
 
 <xsl:template match="/">
-<xsl:text >#NAME "Sunny Folkets SV-EN (bug: BinSun@mail.com)"
+<xsl:text >#NAME "Sunny Folkets Lexikon SV-EN wav(bug: BinSun@mail.com)"
 #INDEX_LANGUAGE "Swedish"
 #CONTENTS_LANGUAGE "English"
 

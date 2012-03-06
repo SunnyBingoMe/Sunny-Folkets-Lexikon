@@ -1,1 +1,4 @@
 *.swp
+*tmp
+*.bak
+*.b
