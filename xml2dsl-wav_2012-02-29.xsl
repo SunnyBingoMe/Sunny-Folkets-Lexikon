@@ -56,7 +56,7 @@
 		</xsl:if>
 
 		<xsl:if test="phonetic/@value" ><!--phonemic annotation-->
-			<xsl:text > [c green]\/</xsl:text>
+			<xsl:text > [c darkcyan]\/</xsl:text>
 			<xsl:value-of select="phonetic/@value"/>
 			<xsl:text >\/[/c]</xsl:text>
 		</xsl:if>
