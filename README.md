@@ -6,7 +6,7 @@
 Author: BinSun@mail.com
 
 Installation and configuration:
-http://bit.ly/SunnyLexikonBlog
+http://bit.ly/sunny-lexikon
 
 This edition of the Sunny Folkets SV-EN Dictionary
 is based on Folkets Lexikon (Peoples Dictionary) (2012-02-26),
@@ -22,7 +22,7 @@ Known issue:
 	mp3 vs. wav
 	wav files are so huge, but have higher capability.
 	mp3 files are so small,but may  cause  problems.
-	See http://bit.ly/SunnyLexikonBlog for detail.
+	See http://bit.ly/sunny-lexikon
 
 
 To-do: 
