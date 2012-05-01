@@ -7,20 +7,23 @@ sub dDebug	{if($dDebug){say @_;}}			sub dDebugOk{if($dDebugOk){say @_;}}
 ####################################################################################
 
 # Perl trim function to remove whitespace from the start and end of the string
-sub trim($){
+sub trim($)
+{
 	my $string = shift;
 	$string =~ s/^\s+//;
 	$string =~ s/\s+$//;
 	return $string;
 }
 # Left trim function to remove leading whitespace
-sub ltrim($){
+sub ltrim($)
+{
 	my $string = shift;
 	$string =~ s/^\s+//;
 	return $string;
 }
 # Right trim function to remove trailing whitespace
-sub rtrim($){
+sub rtrim($)
+{
 	my $string = shift;
 	$string =~ s/\s+$//;
 	return $string;

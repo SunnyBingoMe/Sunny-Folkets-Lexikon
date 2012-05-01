@@ -2,3 +2,6 @@
 *tmp
 *.bak
 *.b
+*.files.zip
+.fuse_hidden*
+mdict/
