@@ -58,10 +58,10 @@ use List::Util qw(sum);
 	}
 
 
-#$fileName = "folkets_sv_en_public_2012-02-26.xml";
-#$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
-$fileName = "dict-example.xml";
-$fileNameRaw = "dict-example-solved.xml";
+$fileName = "folkets_sv_en_public_2012-02-26.xml";
+$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
+#$fileName = "dict-example.xml";
+#$fileNameRaw = "dict-example-solved.xml";
 open (FID, $fileName) or die("ERR open file: $fileName \n");
 open (raw, ">$fileNameRaw") or die("ERR open file: $fileName \n");
 
@@ -74,11 +74,16 @@ $lineNumber = 0;
 @inflectionList = ();
 while(<FID>)
 {
-    debugOk "ok: $_";
+	debugOk "ok: $_";
+	chomp ($_);
 	$lineNumber ++;
 
 	if ($_ =~ m/<word[^>]+value="([^"]+)"/){
 		$tWord = $1;
+	}
+	if ($_ =~ m/<word[^>]+class="([^"]+)"/){
+		debugOk "class: $tClass.";
+		$tClass= $1;
 	}
 	$tCounterInCaseNewBug = 0;
 	#$tCounterInCaseNewPhonemic = 0;
@@ -147,16 +152,29 @@ while(<FID>)
 		$_ = "$tBeforePhonemic$tPhonemic$tAfterPhonemic";
 		debugOk "after  change: $_.";
 	} #end handle phonemic
-	#<inflection value="ajournerat" />
-	if ($_ =~ m/<inflection value="([^"]+)"/) {
-		push (@inflectionList, $1);
+	if ($_ =~ m/<inflection[^>]+value="([^"]+)"/) {
+		$tInflection = $1;
+		debugOk "found inflection:'$tInflection' of '$tWord'.";
+		if ($tInflection ne $tWord) {
+		#if ( ($tInflection ne $tWord) && ($tClass ne "nn") ) {
+			debugOk "added inflection:$tInflection.";
+			push (@inflectionList, $tInflection);
+		}
+	}
+	if ($_ =~ m/<compound[^>]+value="([^"]+)"/) {
+		$tCompoundWithPipeSign = $1;
+		$tCompound = $tCompoundWithPipeSign;
+		#$tCompound =~ s/\|//;
+		if ($tCompound ne $tWord) {
+			push (@inflectionList, $tCompoundWithPipeSign);
+		}
 	}
 	#$_ =~ s/></>
 	#</;
-	print raw "$_";
+	print raw "$_\n";
 	if ( ($_ =~ m/<\/word>/) && (@inflectionList != 0) ) {
 		foreach (@inflectionList) {
-			print raw "<word value='$_' sunnySoftRedirection='$tWord'>\n</word>\n"
+			print raw '<word value="' . $_ . '" class="'. $tClass .'" sunnySoftRedirection="' . $tWord .'"'. ">\n</word>\n";
 		}
 		@inflectionList = ();
 	}
@@ -164,6 +182,6 @@ while(<FID>)
 
 close (FID);
 close (raw);
-#system ("dos2unix $fileNameRaw");
+system ("dos2unix $fileNameRaw");
 exit;
 

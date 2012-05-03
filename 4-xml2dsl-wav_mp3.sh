@@ -1,6 +1,6 @@
 #!/bin/bash
 thisScriptFilename=`basename $0`
-usage="Usage: ./$thisScriptFilename [-t mp3|wav|spx|mdict]. mp3 by default." 
+usage="Usage: ./$thisScriptFilename [-t mp3|wav|spx|mdict]. wav by default." 
 
 	dbug=0
 	dbugOk=0
@@ -120,7 +120,8 @@ if $(test $# -gt 0);then
 		esac 
 	done
 else 
-	say "using default type: mp3."
+	say "using default type: wav."
+	mediaType=wav
 fi 
 say "mediaType = $mediaType."
 dslFileName="Sunny-Folkets-Lexikon-sv_en-$mediaType-BinSun.dsl"

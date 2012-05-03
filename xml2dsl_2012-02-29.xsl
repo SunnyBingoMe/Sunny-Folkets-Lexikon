@@ -17,8 +17,42 @@
 <xsl:text >
 	</xsl:text>
 
+		<xsl:choose>
+			<xsl:when test="./@sunnySoftRedirection" >
+				<xsl:text >[m0][c black][i]</xsl:text><!-- head word -->
+					<xsl:value-of select="translate(./@value, '|', '-')"/>
+				<xsl:text >[/i][/c]</xsl:text>
+				<xsl:if test="./@class" ><!--word class-->
+					<xsl:text > [c orange]</xsl:text>
+					<xsl:choose>
+						<xsl:when test="./@class = 'ab'">adverb</xsl:when>
+						<xsl:when test="./@class = 'ie'">infinitival-marker</xsl:when>
+						<xsl:when test="./@class = 'in'">interjektion</xsl:when>
+						<xsl:when test="./@class = 'jj'">adjective</xsl:when>
+						<xsl:when test="./@class = 'kn'">conjunction</xsl:when>
+						<xsl:when test="./@class = 'nn'">noun</xsl:when>
+						<xsl:when test="./@class = 'pm'">proper-noun</xsl:when>
+						<xsl:when test="./@class = 'pn'">personal-and-indefinite-pronoun</xsl:when>
+						<xsl:when test="./@class = 'pp'">preposition</xsl:when>
+						<xsl:when test="./@class = 'rg'">cardinal-number</xsl:when>
+						<xsl:when test="./@class = 'vb'">verb</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="./@class"/>
+						</xsl:otherwise>
+					</xsl:choose>
+					<xsl:text >[/c]</xsl:text>
+				</xsl:if>
+
+				<xsl:text >
+			[m1][c grey][i]》》</xsl:text>
+				<xsl:value-of select="./@sunnySoftRedirection"/>
+				<xsl:text >[/i][/c][/m]</xsl:text>
+			</xsl:when>
+
+			<xsl:otherwise >
+
 		<xsl:text >[m0][c red][b]</xsl:text><!-- head word -->
-			<xsl:value-of select="translate(./@value, '|', '·')"/>
+			<xsl:value-of select="translate(./@value, '|', '-')"/>
 		<xsl:text >[/b][/c]</xsl:text>
 
 		<xsl:if test="./paradigm/inflection" ><!-- inflection -->
@@ -149,7 +183,7 @@
 				<xsl:if test="position()!=1" >
 				</xsl:if>
 				<xsl:text >[m4][b]</xsl:text>
-					<xsl:value-of select="./@value"/>
+					<xsl:value-of select="translate(./@value, '|', '-')"/>
 				<xsl:text >[/b]</xsl:text>
 				<xsl:text > [s]uk_small.bmp[/s] </xsl:text>
 				<xsl:value-of select="./translation/@value"/>
@@ -169,6 +203,8 @@
 			<xsl:text >[/b][/c]</xsl:text>
 		</xsl:if>
 
+	</xsl:otherwise>
+	</xsl:choose>
 <xsl:text >
 
 </xsl:text>

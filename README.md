@@ -24,45 +24,44 @@ Known issue:
 	mp3 files are so small,but may  cause  problems.
 	See http://bit.ly/sunny-lexikon
 
-updated:
-	phonemic notation replace array //solved.
-		+ => ‿ //_  //skjorta
-		@ => ŋ //ng //tidning
-		$ => ʃ //sj //skjorta
-		c => ç //tj //kjol (pinyin: sh)
-
 To-do: 
 	// too complicated (branches around sounds could not solve this)
-	find all special phonemic from Lexin
-	Compounds soft redirection, Compounds | -> `
-	variant redirection???, 
-	morph verb soft redirection, link original to morph-ed words (may have sounds).
-	morph noun redirection (any conflict???).
 
+	find all special phonemic from Lexin
 	grave accent: ạịọụỵạ̊ạ̈
 
 	some sound of words: e, van,
 
 	word/variant; in svenska
+	variant redirection???, 
 	Use;
+
 	word/@comment; in svenska
 	word/translation/@comment; in english
 	pictures/flashes/urls; picture Swedish picture English
 	
 	See Saldo / Saldo 2; film,
 	morphology;
-	sound of: (can not find) 
+	sound of: (even can not find on original web) 
 		chargé-d'affaires
 		arbetsmarknadsinstitut
 	
+Version:
+	phonemic notation replace array //solved.
+		+ => ‿ //_  //skjorta
+		@ => ŋ //ng //tidning
+		$ => ʃ //sj //skjorta (pinyin: h-like)
+		c => ç //tj //kjol (pinyin: sh)
+	morph verb soft redirection, link original to morph-ed words
+	morph noun redirection
 	
 Version: 1.0.2012-03-06.0055	
-solved bugs: sounds of: å, ö, få, tåg, år, åt, där,  // solved by using numbers
+	solved bugs: sounds of: å, ö, få, tåg, år, åt, där,  // solved by using numbers
 
 Version: 0.1.2012-03-03.0206
-Waht's new:
 	word class;
 	examples;
 	Synonyms;
 	Idioms;
 	Compounds;
+
