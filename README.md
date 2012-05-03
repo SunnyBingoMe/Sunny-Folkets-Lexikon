@@ -24,12 +24,24 @@ Known issue:
 	mp3 files are so small,but may  cause  problems.
 	See http://bit.ly/sunny-lexikon
 
+updated:
+	phonemic notation replace array //solved.
+		+ => ‿ //_  //skjorta
+		@ => ŋ //ng //tidning
+		$ => ʃ //sj //skjorta
+		c => ç //tj //kjol (pinyin: sh)
 
 To-do: 
-	phonemic notation replace array // php or perl. is xsl ok???
-		+ => _
-		@ => ng
-		$ => sj
+	// too complicated (branches around sounds could not solve this)
+	find all special phonemic from Lexin
+	Compounds soft redirection, Compounds | -> `
+	variant redirection???, 
+	morph verb soft redirection, link original to morph-ed words (may have sounds).
+	morph noun redirection (any conflict???).
+
+	grave accent: ạịọụỵạ̊ạ̈
+
+	some sound of words: e, van,
 
 	word/variant; in svenska
 	Use;

@@ -58,10 +58,10 @@ use List::Util qw(sum);
 	}
 
 
-$fileName = "folkets_sv_en_public_2012-02-26.xml";
-$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
-#$fileName = "dict-example.xml";
-#$fileNameRaw = "dict-example-solved.xml";
+#$fileName = "folkets_sv_en_public_2012-02-26.xml";
+#$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
+$fileName = "dict-example.xml";
+$fileNameRaw = "dict-example-solved.xml";
 open (FID, $fileName) or die("ERR open file: $fileName \n");
 open (raw, ">$fileNameRaw") or die("ERR open file: $fileName \n");
 
@@ -71,12 +71,17 @@ $| = 1;
 select $old_fh;
 
 $lineNumber = 0;
+@inflectionList = ();
 while(<FID>)
 {
     debugOk "ok: $_";
 	$lineNumber ++;
+
+	if ($_ =~ m/<word[^>]+value="([^"]+)"/){
+		$tWord = $1;
+	}
 	$tCounterInCaseNewBug = 0;
-	$tCounterInCaseNewPhonemic = 0;
+	#$tCounterInCaseNewPhonemic = 0;
 	$tCounterInCaseNewStrong = 0;
 	while ($_ =~ m/&amp;\S{1,5};/){
 		$tCounterInCaseNewBug ++;
@@ -88,33 +93,41 @@ while(<FID>)
 		$_ =~ s/&amp;#39;/&#39;/;
 	}
 	$tCounterInCaseNewBug = 0;
-	if ($_ =~ m/^(.*<phonetic.*value=")([^"]+)(".*)$/) {
+	if ($_ =~ m/^(.*<phonetic.*value=")([^"]+)(".*)$/) { #handle phonemic
 		$tBeforePhonemic = $1;
 		$tPhonemic = $2;
 		$tAfterPhonemic = $3;
 		debugOk "before change: $tBeforePhonemic$tPhonemic$tAfterPhonemic. (line: $lineNumber)";
 		debugOk "tPhonemic: $tPhonemic.";
-		#while ($_ =~ m/<phonetic.*([^-²\.=2\wåÅöÖäÄàéê :"]+).*\/>/){
-		while ($tPhonemic =~ m/[^²2\wåÅäÄöÖàéê :;,\-\.\(\)]+/){ #$,@,+ etc
-			$phonemicToBeChanged = $tPhonemic;
-			debug "found phonemicToBeChanged:'$phonemicToBeChanged' at line $lineNumber:$_";
-			$tCounterInCaseNewPhonemic ++;
-			if ($tCounterInCaseNewPhonemic >= 10){
-				say ("ERR: found new phonemic: '$phonemicToBeChanged' in '$_' at line: $lineNumber.");
-				exit 1;
-			}
+		#while ($tPhonemic =~ m/[^²\wåÅäÄöÖàéê :;,\-\.\(\)]+/){ #$,@,+, etc. but dealing with grave accent later.
+			#$phonemicToBeChanged = $tPhonemic;
+			#debugOk "found phonemicToBeChanged:'$phonemicToBeChanged' at line $lineNumber:$_";
+			#$tCounterInCaseNewPhonemic ++;
+			#if ($tCounterInCaseNewPhonemic >= 10){
+				#say ("ERR: found new phonemic: '$phonemicToBeChanged' in '$_' at line: $lineNumber.");
+				#exit 1;
+			#}
+			#$tPhonemic =~ s/2/²/; # \w contains numbers.
+			#$tPhonemic =~ s/\+/‿/;
+			#$tPhonemic =~ s/@/ŋ/;
+			#$tPhonemic =~ s/\$/ʃ/;
+			#$tPhonemic =~ s/c/ç/;
+		#}
+		for ($tReverseCounterForNonAlphabatPhonemic = 3; $tReverseCounterForNonAlphabatPhonemic > 0; $tReverseCounterForNonAlphabatPhonemic --){
 			$tPhonemic =~ s/2/²/;
-			$tPhonemic =~ s/\+/_/;
-			$tPhonemic =~ s/@/ng/;
-			$tPhonemic =~ s/\$/sj/;
+			$tPhonemic =~ s/\+/‿/;
+			$tPhonemic =~ s/@/ŋ/;
+			$tPhonemic =~ s/\$/ʃ/;
+			$tPhonemic =~ s/c/ç/;
 		}
-		$tCounterInCaseNewPhonemic = 0;
+		#$tCounterInCaseNewPhonemic = 0;
+		$tPhonemic =~ s/el\. /，/;
 		$tCounterInCaseNewStrong = 0;
 		while ($tPhonemic =~ m/^(.*)([A-Z]{1})(.*)$/) {
 			$tBeforeStrong = $1;
 			$tStrong = $2;
 			$tAfterStrong = $3;
-			debug "found strong: $tStrong in phonemic: $tPhonemic at line: $lineNumber.";
+			debugOk "found strong: $tStrong in phonemic: $tPhonemic at line: $lineNumber.";
 			$tCounterInCaseNewStrong ++;
 			if ($tCounterInCaseNewStrong >= 10){
 				say ("ERR: found new strong: '$tStrong' at line: $lineNumber.");
@@ -133,13 +146,24 @@ while(<FID>)
 		$tCounterInCaseNewStrong = 0;
 		$_ = "$tBeforePhonemic$tPhonemic$tAfterPhonemic";
 		debugOk "after  change: $_.";
+	} #end handle phonemic
+	#<inflection value="ajournerat" />
+	if ($_ =~ m/<inflection value="([^"]+)"/) {
+		push (@inflectionList, $1);
 	}
 	#$_ =~ s/></>
 	#</;
 	print raw "$_";
+	if ( ($_ =~ m/<\/word>/) && (@inflectionList != 0) ) {
+		foreach (@inflectionList) {
+			print raw "<word value='$_' sunnySoftRedirection='$tWord'>\n</word>\n"
+		}
+		@inflectionList = ();
+	}
 }
 
 close (FID);
 close (raw);
+#system ("dos2unix $fileNameRaw");
 exit;
 
