@@ -1,6 +1,6 @@
 #!/bin/bash
 thisScriptFilename=`basename $0`
-usage="Usage: ./$thisScriptFilename [-t mp3|wav|spx|mdict]. wav by default." 
+usage="Usage: ./$thisScriptFilename [-t mp3|wav]. wav by default." 
 
 	dbug=0
 	dbugOk=0
@@ -97,11 +97,11 @@ if $(test $# -gt 0);then
 					;;
 				wav )
 					;;
-				mdict )
-					;;
-				spx )
-					mediaType=mdict
-					;;
+				#mdict )
+					#;;
+				#spx )
+					#mediaType=mdict
+					#;;
 				*)
 					say "ERR: unknow media type: $mediaType."
 					exit 1
@@ -129,5 +129,7 @@ echo -n -e \\xEF\\xBB\\xBF > $dslFileName
 if [ $mediaType == mp3 ] ; then
 	mediaType=MP3
 fi 
-xsltproc --stringparam type $mediaType xml2dsl_2012-02-29.xsl folkets_sv_en_public_2012-02-26_solved-amp.xml >> $dslFileName
+xsltproc --stringparam type $mediaType xml2dsl_2012-02-29.xsl folkets_sv_en_public_2012-02-26_solved-amp.xml >> $dslFileName 
+#&& \
+	#unix2dos $dslFileName
 

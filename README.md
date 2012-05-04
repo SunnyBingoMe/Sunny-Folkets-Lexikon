@@ -1,5 +1,4 @@
-﻿Sunny Folkets Lexikon sv_en v1.0.2012-03-06.0055
-
+﻿Sunny Folkets Lexikon SV-EN/SV v2.0.2012-05-04.1840
 
 ![](http://i.minus.com/iW4GRHsHzuBsK.png)
 
@@ -25,8 +24,6 @@ Known issue:
 	See http://bit.ly/sunny-lexikon
 
 To-do: 
-	when compare tWord and redirect, take care of |.
-
 	// too complicated (branches around sounds could not solve this)
 
 	find all special phonemic from Lexin
@@ -48,7 +45,7 @@ To-do:
 		chargé-d'affaires
 		arbetsmarknadsinstitut
 	
-Version:
+Version: 2.0.2012-05-04.1840
 	phonemic notation replace array //solved.
 		+ => ‿ //_  //skjorta
 		@ => ŋ //ng //tidning
@@ -56,6 +53,7 @@ Version:
 		c => ç //tj //kjol (pinyin: sh)
 	morph verb soft redirection, link original to morph-ed words
 	morph noun redirection
+	OBS: cannot successfully test in Win7.
 	
 Version: 1.0.2012-03-06.0055	
 	solved bugs: sounds of: å, ö, få, tåg, år, åt, där,  // solved by using numbers
