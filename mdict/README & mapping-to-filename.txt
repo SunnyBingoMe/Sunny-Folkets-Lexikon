@@ -1,4 +1,9 @@
-﻿àéêÖöÅåÄä
+﻿Sunny Folkets Lexikon sv-en/sv
+(for mdict) v1.0.2012-05-04.1340
+BinSun@mail.com
+http://bit.ly/sunny-lexikon
+
+àéêÖöÅåÄä
 178339966
 
 1: 0 times (taken)

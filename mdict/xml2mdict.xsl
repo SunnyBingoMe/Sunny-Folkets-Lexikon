@@ -37,14 +37,14 @@
 
 				<xsl:text >
 	ltbr/gtltfont color="silver"gtltigtlta href="</xsl:text>
-				<xsl:value-of select="./@sunnySoftRedirection"/><xsl:text>">》》</xsl:text>
-				<xsl:value-of select="./@sunnySoftRedirection"/><xsl:text>lt/a></xsl:text>
+<xsl:value-of select="./@sunnySoftRedirection"/><xsl:text>">》》ltbr/gt</xsl:text>
+				<xsl:value-of select="translate(./@sunnySoftRedirection, '|', '-')"/><xsl:text>lt/a></xsl:text>
 				<xsl:text >lt/igtlt/fontgt</xsl:text>
 			</xsl:when>
 
 			<xsl:otherwise >
 
-		<xsl:text >ltbr/gtltfont color="red"gtltbgt</xsl:text><!-- head word -->
+		<xsl:text >ltfont color="red"gtltbgt</xsl:text><!-- head word -->
 			<xsl:value-of select="translate(./@value, '|', '-')"/>
 		<xsl:text >lt/bgtlt/fontgt</xsl:text>
 
@@ -85,7 +85,7 @@
 		</xsl:if>
 
 		<xsl:if test="phonetic/@value" ><!--phonemic annotation-->
-			<xsl:text > ltfont color="darkcyan"gt/</xsl:text>
+			<xsl:text >ltbr/gtltfont color="darkcyan"gt/</xsl:text>
 			<xsl:value-of select="phonetic/@value"/>
 			<xsl:text >/lt/fontgt</xsl:text>
 		</xsl:if>
@@ -93,10 +93,10 @@
 		<xsl:if test="phonetic/@soundFile" ><!-- sound file -->
 			<xsl:text >lta href="sound://</xsl:text>
 				<xsl:value-of select="translate(substring-before(phonetic/@soundFile, '.swf'), 'àéêÖöÅåÄä', '178339966')"/>
-			<xsl:text >.spx">ltimg src="file://beeper.bmp">lt/a></xsl:text>
+			<xsl:text >.spx">ltimg src="file://beeper.bmp"></xsl:text>
 			<xsl:text >ltfont color="silver"gt </xsl:text>
 				<xsl:value-of select="substring-before(phonetic/@soundFile, '.swf')"/>
-				<xsl:text >.spxlt/fontgt</xsl:text>
+				<xsl:text >.spxlt/fontgt lt/a></xsl:text>
 		</xsl:if>
 
 		<!-- begin translation/definition -->

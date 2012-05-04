@@ -64,7 +64,6 @@ xsltproc xml2mdict.xsl ../folkets_sv_en_public_2012-02-26_solved-amp.xml > $outF
 
 echo "in perl" && \
 perl ./6-solving-amp-xml-entity-phonemic.pl && \
-unix2dos Sunny-Folkets-Lexikon-sv_en-BinSun.txt 
-
+unix2dos Sunny-Folkets-Lexikon-sv_en-BinSun.txt && \
 rm tmp 
 

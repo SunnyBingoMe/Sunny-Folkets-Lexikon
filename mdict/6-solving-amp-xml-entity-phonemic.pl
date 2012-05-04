@@ -63,7 +63,7 @@ $fileNameRaw = "Sunny-Folkets-Lexikon-sv_en-BinSun.txt";
 #$fileName = "dict-example.xml";
 #$fileNameRaw = "dict-example-solved.xml";
 open (FID, $fileName) or die("ERR open file: $fileName \n");
-open (raw, ">$fileNameRaw") or die("ERR open file: $fileName \n");
+open (raw, ">$fileNameRaw") or die("ERR open file: $fileNameRaw \n");
 
 ## don't buffer output
 my $old_fh = select socketSession;
@@ -118,6 +118,26 @@ while(<FID>)
 		print raw $_;
 	}
 }
+
+print raw '0
+@@@LINK=sunny
+</>
+sunny 
+	Sunny Folkets Lexikon  <br/>
+	sv-en/sv (for mdict)  <br/>
+	v1.0.2012-05-04.1340 <br/> <br/>
+	http://bit.ly/sunny-lexikon <br/>
+	BinSun@mail.com <br/>
+</>
+sunnyboy
+@@@LINK=sunny
+</>
+BinSun
+@@@LINK=sunny
+</>
+SunBin
+@@@LINK=sunny
+</>';
 
 close (FID);
 close (raw);
