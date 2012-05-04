@@ -58,10 +58,10 @@ use List::Util qw(sum);
 	}
 
 
-$fileName = "folkets_sv_en_public_2012-02-26.xml";
-$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
-#$fileName = "dict-example.xml";
-#$fileNameRaw = "dict-example-solved.xml";
+#$fileName = "folkets_sv_en_public_2012-02-26.xml";
+#$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
+$fileName = "dict-example.xml";
+$fileNameRaw = "dict-example-solved.xml";
 open (FID, $fileName) or die("ERR open file: $fileName \n");
 open (raw, ">$fileNameRaw") or die("ERR open file: $fileName \n");
 

@@ -25,6 +25,8 @@ Known issue:
 	See http://bit.ly/sunny-lexikon
 
 To-do: 
+	when compare tWord and redirect, take care of |.
+
 	// too complicated (branches around sounds could not solve this)
 
 	find all special phonemic from Lexin

@@ -4,4 +4,10 @@
 *.b
 *.files.zip
 .fuse_hidden*
-mdict/
+MdxBuilder/
+*.mdd
+*.mdx
+Sunny-Folkets-Lexikon-spx/
+*.7z
+
+

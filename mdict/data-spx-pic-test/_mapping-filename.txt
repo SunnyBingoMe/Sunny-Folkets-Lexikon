@@ -1,0 +1,42 @@
+﻿Ö 0326 => 3
+ö 0366 => 3
+
+Å 0305 => 9
+å 0345 => 9
+
+Ä 0304 => =
+ä 0344 => =
+
+à 0340 => 1
+
+é 0351 => 7
+
+ê 0352 => 8
+
+b j k l n q r s t u w x y z ä 
+1, 7, 8, (3, 9) 
+
+àéêÖöÅåÄä
+1783399==
+
+1: 0 times (taken)
+2: 2 times
+3: 1 times (taken)
+4: 1 times
+5: 4 times
+6: 1 times
+7: 0 times (taken)
+8: 0 times (taken)
+9: 1 times (taken)
+0: 8 times
++: 0 times (taken)
+,: 0 times
+_: 0 times (taken)
+[: 0 times //weird
+]: 0 times //weird
+{: 0 times //weird
+}: 0 times //weird
+=: 0 times (taken)
+~: 0 times //weird
+(: 0 times //weird
+): 0 times //weird
