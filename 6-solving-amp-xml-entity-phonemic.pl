@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 use List::Util qw(sum);
+use List::MoreUtils qw(uniq);
 
 	### debug variables
 	#beta:
@@ -58,10 +59,10 @@ use List::Util qw(sum);
 	}
 
 
-#$fileName = "folkets_sv_en_public_2012-02-26.xml";
-#$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
-$fileName = "dict-example.xml";
-$fileNameRaw = "dict-example-solved.xml";
+$fileName = "folkets_sv_en_public_2012-02-26.xml";
+$fileNameRaw = "folkets_sv_en_public_2012-02-26_solved-amp.xml";
+#$fileName = "dict-example.xml";
+#$fileNameRaw = "dict-example-solved.xml";
 open (FID, $fileName) or die("ERR open file: $fileName \n");
 open (raw, ">$fileNameRaw") or die("ERR open file: $fileName \n");
 
@@ -98,7 +99,7 @@ while(<FID>)
 		$_ =~ s/&amp;#39;/&#39;/;
 	}
 	$tCounterInCaseNewBug = 0;
-	if ($_ =~ m/^(.*<phonetic.*value=")([^"]+)(".*)$/) { #handle phonemic
+	if ($_ =~ m/^(.*<phonetic.*value=")([^"]+)(".*)$/) { # handle phonemic
 		$tBeforePhonemic = $1;
 		$tPhonemic = $2;
 		$tAfterPhonemic = $3;
@@ -139,19 +140,28 @@ while(<FID>)
 				exit 1;
 			}
 			$tStrong =~ tr/[A-Z]/[a-z]/;
-			$tStrong = "&#39;$tStrong";
+			$tStrong = "&#96;$tStrong";
 			$tPhonemic = $tBeforeStrong.$tStrong.$tAfterStrong;
 		}
 		for ($tCounterSwedishStrong = 1; $tCounterSwedishStrong <= 5; $tCounterSwedishStrong ++){
 			#seems perl cannot distinguish Swedish upper case with lower case in regular expression.
-			$tPhonemic =~ s/Å/&#39;å/;
-			$tPhonemic =~ s/Ä/&#39;ä/;
-			$tPhonemic =~ s/Ö/&#39;ö/;
+			$tPhonemic =~ s/Å/&#96;å/;
+			$tPhonemic =~ s/Ä/&#96;ä/;
+			$tPhonemic =~ s/Ö/&#96;ö/;
 		}
 		$tCounterInCaseNewStrong = 0;
 		$_ = "$tBeforePhonemic$tPhonemic$tAfterPhonemic";
 		debugOk "after  change: $_.";
-	} #end handle phonemic
+	} # end handle phonemic
+	if ($_ =~ m/^(.*<grammar.*value=")([^"]+)(".*)$/) { # handle grammar
+		$tBeforeGrammar=$1;
+		$tGrammar=$2;
+		$tAfterGrammar=$3;
+		while ($tGrammar =~ m/&amp;/){
+			$tGrammar =~ s/\s*&amp;\s*/～/;
+		}
+		$_ = "$tBeforeGrammar$tGrammar$tAfterGrammar";
+	} # end handle grammar
 	if ($_ =~ m/<inflection[^>]+value="([^"]+)"/) {
 		$tInflection = $1;
 		debugOk "found inflection:'$tInflection' of '$tWord'.";
@@ -173,7 +183,8 @@ while(<FID>)
 	#</;
 	print raw "$_\n";
 	if ( ($_ =~ m/<\/word>/) && (@inflectionList != 0) ) {
-		foreach (@inflectionList) {
+		@tInflectionListUnique = uniq(@inflectionList);
+		foreach (@tInflectionListUnique) {
 			print raw '<word value="' . $_ . '" class="'. $tClass .'" sunnySoftRedirection="' . $tWord .'"'. ">\n</word>\n";
 		}
 		@inflectionList = ();

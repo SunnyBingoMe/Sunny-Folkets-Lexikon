@@ -86,7 +86,7 @@
 		</xsl:if>
 
 		<xsl:if test="grammar" ><!--Grammar comment-->
-			<xsl:text >[c grey],[/c] [c orangered]\[</xsl:text>
+			<xsl:text > [c orangered]\[</xsl:text>
 			<xsl:value-of select="grammar/@value"/>
 			<xsl:text >\][/c]</xsl:text>
 		</xsl:if>
@@ -108,23 +108,21 @@
 		</xsl:if>
 
 		<!-- begin translation/definition -->
-		<xsl:text >
-			[m1][s]uk.bmp[/s] </xsl:text>
-			<xsl:value-of select="translation/@value"/>
-		<xsl:text >[/m]</xsl:text>
-
 		<xsl:if test="definition">
 			<xsl:text >
 				[m1][s]sv.bmp[/s] </xsl:text>
 				<xsl:value-of select="definition/@value"/>
-			<xsl:text >[/m]</xsl:text>
 			<xsl:if test="definition/translation">
-				<xsl:text >
-					[m2][s]uk_small.bmp[/s] (</xsl:text>
+				<xsl:text > [s]uk_small.bmp[/s] [c darkgray]</xsl:text>
 					<xsl:value-of select="definition/translation/@value"/>
-				<xsl:text >)[/m]</xsl:text>
+				<xsl:text >[/c][/m]</xsl:text>
 			</xsl:if>
 		</xsl:if>
+
+		<xsl:text >
+			[m1][s]uk.bmp[/s] [c darkgray]</xsl:text>
+			<xsl:value-of select="translation/@value"/>
+		<xsl:text >[/c][/m]</xsl:text>
 		<!-- end translation/definition -->
 
 		<!-- begin explanation -->

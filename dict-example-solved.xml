@@ -34,14 +34,14 @@
 </definition>
 </word>
 <word class="ab" lang="sv" value="a conto"><translation value="on account" />
-<phonetic soundFile="a conto.swf" value="ak&#39;ån:to" />
+<phonetic soundFile="a conto.swf" value="ak&#96;ån:to" />
 <definition value="i förskott"><translation value="in advance" />
 </definition>
 </word>
 <word value="à jour" lang="sv" class="jj" comment="franskt uttryck"><translation value="abreast with" />
 <translation value="up-to-date" />
 <translation value="informed" />
-<phonetic value="aʃ&#39;o:r" soundFile="à jour.swf" />
+<phonetic value="aʃ&#96;o:r" soundFile="à jour.swf" />
 <see value="à jour||à_jour..1||à_jour..avm.1" type="saldo" />
 <idiom value="hålla sig (el. vara) à jour (med något) (&quot;hålla sig informerad&quot;)"><translation value="keep up to date (with sth.), keep abreast (of sth.) (&quot;keep oneself informed&quot;)" />
 </idiom>
@@ -54,7 +54,7 @@
 </definition>
 </word>
 <word class="ab" comment="franskt uttryck" lang="sv" value="à la carte"><translation comment="a French expression" value="à la carte" />
-<phonetic soundFile="à la carte.swf" value="alak&#39;ar‿t:" />
+<phonetic soundFile="à la carte.swf" value="alak&#96;ar‿t:" />
 <see type="saldo" value="à la carte||à_la_carte..1||à_la_carte..abm.1" />
 <example value="äta à la carte"><translation value="eat (dine, lunch) à la carte" />
 </example>
@@ -66,7 +66,7 @@
 <word value="AB" lang="sv" class="abbrev" comment="i firmanamn"><translation value="Ltd." />
 <translation value="Co." />
 <translation value="Inc." />
-<phonetic value="²&#39;a:be:" soundFile="ab.swf" />
+<phonetic value="²&#96;a:be:" soundFile="ab.swf" />
 <example value="Svenska Cellulosa AB"><translation value="Swedish Cellulosa Ltd." />
 </example>
 <example value="AB Svensk Bilprovning"><translation value="The Swedish Motor Vehicle Inspection Co." />
@@ -75,17 +75,17 @@
 </definition>
 </word>
 <word class="pn" lang="sv" value="AB Svensk Bilprovning"><translation value="the Swedish Motor Vehicle Inspection Co." />
-<phonetic soundFile="ab svensk bilprovning.swf" value="sven:sk ²b&#39;i:lpro:vniŋ" />
+<phonetic soundFile="ab svensk bilprovning.swf" value="sven:sk ²b&#96;i:lpro:vniŋ" />
 <explanation value="Man utför dessutom frivilliga trafiksäkerhetskontroller, konditionstest av bilar, registreringsbesiktningar m m. Staten är största delägare."><translation value="&quot;Also carries out voluntary road safety tests, general motor-vehicle performance tests, registration tests, etc. The State is the majority owner.&quot;" />
 </explanation>
 <definition value="ett bolag som på sina stationer runt om i Sverige utför årliga obligatoriska kontrollbesiktningar av bilar"><translation value="a company which carries out compulsory annual motor vehicle inspection (MOT) tests at testing stations in various parts of Sweden" />
 </definition>
 </word>
-<word class="pn" lang="sv" value="AB Svenska Spel"><phonetic soundFile="ab svenska spel.swf" value="²&#39;a:be: sven:ska spe:l" />
+<word class="pn" lang="sv" value="AB Svenska Spel"><phonetic soundFile="ab svenska spel.swf" value="²&#96;a:be: sven:ska spe:l" />
 <explanation value="Statligt spelbolag" />
 </word>
 <word class="nn" lang="sv" value="abbé"><translation value="abbé" />
-<phonetic soundFile="abbé.swf" value="ab&#39;e:" />
+<phonetic soundFile="abbé.swf" value="ab&#96;e:" />
 <paradigm><inflection value="abbén" />
 <inflection value="abbéer" />
 </paradigm>
@@ -98,7 +98,7 @@
 <word value="abbéer" class="nn" sunnySoftRedirection="abbé">
 </word>
 <word class="nn" lang="sv" value="abbedissa"><translation value="abbess" />
-<phonetic soundFile="abbedissa.swf" value="²abed&#39;is:a" />
+<phonetic soundFile="abbedissa.swf" value="²abed&#96;is:a" />
 <paradigm><inflection value="abbedissan" />
 <inflection value="abbedissor" />
 </paradigm>
@@ -111,7 +111,7 @@
 <word value="abbedissor" class="nn" sunnySoftRedirection="abbedissa">
 </word>
 <word class="nn" lang="sv" value="abborre"><translation value="perch" />
-<phonetic soundFile="abborre.swf" value="²&#39;ab:år:e" />
+<phonetic soundFile="abborre.swf" value="²&#96;ab:år:e" />
 <paradigm><inflection value="abborren" />
 <inflection value="abborrar" />
 </paradigm>
@@ -129,7 +129,7 @@
 <word value="abborr|pinne" class="nn" sunnySoftRedirection="abborre">
 </word>
 <word class="nn" lang="sv" value="abc"><translation value="abc" />
-<phonetic soundFile="abc.swf" value="a:be:s&#39;e:" />
+<phonetic soundFile="abc.swf" value="a:be:s&#96;e:" />
 <paradigm><inflection value="abcet" />
 <inflection value="abcn" />
 <inflection value="abcna" />
@@ -146,7 +146,7 @@
 </word>
 <word value="abc-bok" lang="sv" class="nn"><translation value="spelling-book" />
 <translation value="primer" />
-<phonetic value="²&#39;a:be:se:bo:k" soundFile="abc-bok.swf" />
+<phonetic value="²&#96;a:be:se:bo:k" soundFile="abc-bok.swf" />
 <paradigm><inflection value="abc-boken" />
 <inflection value="abc-böcker" />
 </paradigm>
@@ -159,7 +159,7 @@
 <word value="abc-böcker" class="nn" sunnySoftRedirection="abc-bok">
 </word>
 <word class="nn" lang="sv" value="ABC-stridsmedel"><translation value="ABC weapons" />
-<phonetic soundFile="ABC-stridsmedel.swf" value="²a:be:s&#39;e:stritsme:del" />
+<phonetic soundFile="ABC-stridsmedel.swf" value="²a:be:s&#96;e:stritsme:del" />
 <paradigm><inflection value="ABC-stridsmedlet" />
 <inflection value="ABC-stridsmedel" />
 <inflection value="ABC-stridsmedlen" />
@@ -172,7 +172,7 @@
 <word value="ABC-stridsmedlen" class="nn" sunnySoftRedirection="ABC-stridsmedel">
 </word>
 <word class="vb" comment="om kung e dyl" lang="sv" value="abdikera"><translation comment="of kings, etc." value="abdicate" />
-<phonetic soundFile="abdikerar.swf" value="abdik&#39;e:rar" />
+<phonetic soundFile="abdikerar.swf" value="abdik&#96;e:rar" />
 <paradigm><inflection value="abdikerade" />
 <inflection value="abdikerat" />
 <inflection value="abdikera" />
@@ -196,7 +196,7 @@
 <word value="abdikerar" class="vb" sunnySoftRedirection="abdikera">
 </word>
 <word class="nn" lang="sv" value="aber"><translation value="snag, catch, but" />
-<phonetic soundFile="aber.swf" value="&#39;a:ber" />
+<phonetic soundFile="aber.swf" value="&#96;a:ber" />
 <paradigm><inflection value="aber" />
 </paradigm>
 <see type="saldo" value="aber||aber..1||aber..nn.1" />
@@ -206,14 +206,14 @@
 </definition>
 </word>
 <word class="abbrev" lang="sv" value="ABF"><translation value="ABF" />
-<phonetic soundFile="ABF.swf" value="a:be:&#39;ef:" />
+<phonetic soundFile="ABF.swf" value="a:be:&#96;ef:" />
 <explanation value="Studieförbund som anordnar studiecirklar i den kommun där det finns representerat."><translation value="&quot;An adult educational association which arranges study circles in the municipalities in which it is represented.&quot;" />
 </explanation>
 <definition value="Arbetarnas Bildningsförbund"><translation value="Workers&#39; Educational Association" />
 </definition>
 </word>
 <word class="jj" lang="sv" value="abnorm"><translation value="abnormal" />
-<phonetic soundFile="abnorm.swf" value="abn&#39;år:m" />
+<phonetic soundFile="abnorm.swf" value="abn&#96;år:m" />
 <paradigm><inflection value="abnormt" />
 <inflection value="abnorma" />
 </paradigm>

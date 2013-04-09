@@ -100,21 +100,21 @@
 		</xsl:if>
 
 		<!-- begin translation/definition -->
-		<xsl:text >
-	ltbr/gtltimg src="uk.bmp"> </xsl:text>
-			<xsl:value-of select="translation/@value"/>
-
 		<xsl:if test="definition">
 			<xsl:text >
 	ltbr/gtltimg src="sv.bmp"> </xsl:text>
 				<xsl:value-of select="definition/@value"/>
 			<xsl:if test="definition/translation">
-				<xsl:text >
-	ltbr/gtltimg src="uk_small.bmp"> (</xsl:text>
+				<xsl:text > ltimg src="uk_small.bmp"> ltfont color="silver"gt</xsl:text>
 					<xsl:value-of select="definition/translation/@value"/>
-				<xsl:text >)</xsl:text>
+				<xsl:text >lt/fontgt</xsl:text>
 			</xsl:if>
 		</xsl:if>
+
+		<xsl:text >
+	ltbr/gtltimg src="uk.bmp"> ltfont color="silver"gt</xsl:text>
+			<xsl:value-of select="translation/@value"/>
+		<xsl:text >lt/fontgt</xsl:text>
 		<!-- end translation/definition -->
 
 		<!-- begin explanation -->
@@ -132,16 +132,18 @@
 		<!-- end explanation -->
 
 		<xsl:if test="./example" ><!-- example-->
+			<xsl:text >ltfont color="silver"gt</xsl:text>
 			<xsl:for-each select="./example">
 				<xsl:if test="position()!=1" >
 				</xsl:if>
-				<xsl:text >ltbr/gt•ltfont color="silver"gt lt/fontgt</xsl:text>
+				<xsl:text >ltbr/gt•</xsl:text>
 					<xsl:value-of select="./@value"/>
 				<xsl:text > ltimg src="uk_small.bmp"> </xsl:text>
 				<xsl:value-of select="./translation/@value"/>
 				<!--<xsl:text >-->
 				<!--</xsl:text>-->
 			</xsl:for-each>
+			<xsl:text >lt/fontgt</xsl:text>
 		</xsl:if>
 
 		<xsl:if test="./idiom" ><!-- idiom-->

@@ -123,9 +123,8 @@ print raw '0
 @@@LINK=sunny
 </>
 sunny 
-	Sunny Folkets Lexikon  <br/>
-	sv-en/sv (for mdict)  <br/>
-	v1.0.2012-05-04.1340 <br/> <br/>
+	Sunny Folkets Lexikon sv-en/sv <br/>
+	(for mdict) v3.0.20121024 <br/> <br/>
 	http://bit.ly/sunny-lexikon <br/>
 	BinSun@mail.com <br/>
 </>

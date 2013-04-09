@@ -1,6 +1,6 @@
-﻿Sunny Folkets Lexikon SV-EN/SV v2.0.2012-05-04.1840
+﻿Sunny Folkets Lexikon SV-EN/SV  Version: 3.0.2012.1024
 
-![](http://i.minus.com/iW4GRHsHzuBsK.png)
+![](http://bit.ly/sunny-prata)
 
 Author: BinSun@mail.com
 
@@ -23,13 +23,18 @@ Known issue:
 	mp3 files are so small,but may  cause  problems.
 	See http://bit.ly/sunny-lexikon
 
-To-do: 
+Todo: 
+	MDICT inner redirection; Does Golden have this feature?
+	remove "|" in redirections, so it could be double-clicked in golden-dict.
+	dilution of English. //partly done
+	when 'word' is same as 'English meaning', it is from English.
+
 	// too complicated (branches around sounds could not solve this)
 
 	find all special phonemic from Lexin
 	grave accent: ạịọụỵạ̊ạ̈
 
-	some sound of words: e, van,
+	some sound of words: e, van, lätt, 
 
 	word/variant; in svenska
 	variant redirection???, 
@@ -45,6 +50,26 @@ To-do:
 		chargé-d'affaires
 		arbetsmarknadsinstitut
 	
+For developers:
+	Usually, below is the procedure to generate the dsl file:
+		$ cd Sunny-Folkets-Lexikon 
+		$ perl 6-solving-amp-xml-entity-phonemic.pl 
+		$ ./4-xml2dsl-wav_mp3.sh -t mp3
+	then re-start golden-dict, it will re-index the dictionary.
+		$ cd mdict
+		$ ./4-xml2mdict-txt.sh
+	goto windows, close Mdict.exe, run MdxBuilder.exe, typein "source", "target", ("data",) then "start".
+		re-run Mdict.exe.
+	done.
+
+Version: 3.0.2012.1024
+	fixed "&" -> "～";
+	strong accent ' -> `;
+	fixed the color to be "silver";
+	synchronized version between Mdict and golden-dict;
+	move English definition under Swedish definition;
+	updated blog.
+	
 Version: 2.0.2012-05-04.1840
 	phonemic notation replace array //solved.
 		+ => ‿ //_  //skjorta
@@ -55,7 +80,7 @@ Version: 2.0.2012-05-04.1840
 	morph noun redirection
 	OBS: cannot successfully test in Win7.
 	
-Version: 1.0.2012-03-06.0055	
+Version: 1.0.2012-03-06.0055
 	solved bugs: sounds of: å, ö, få, tåg, år, åt, där,  // solved by using numbers
 
 Version: 0.1.2012-03-03.0206
